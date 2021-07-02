@@ -39,6 +39,12 @@ public class MyLinkedList {
 		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
+    
+    public INode delete() {
+        INode tempNode = this.head;
+        this.head = head.getNext();
+        return tempNode;
+    }
 
     public void printMyNode(){
         StringBuffer myNode= new StringBuffer("My Node: ");
