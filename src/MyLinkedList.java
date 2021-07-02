@@ -22,20 +22,26 @@ public class MyLinkedList {
         }
     }
     
-    public void append(INode newNode) {
+    public void append(INode myNode) {
 		if (this.head == null) {
-			this.head = newNode;
+			this.head = myNode;
 		}
 		if (this.tail == null) {
-			this.tail = newNode;
+			this.tail = myNode;
 		} else {
-			this.tail.setNext(newNode);
-			this.tail = newNode;
+			this.tail.setNext(myNode);
+			this.tail = myNode;
 		}
+	}
+    
+    public void insert(INode myNode, INode newNode) {
+		INode tempNode = myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
 	}
 
     public void printMyNode(){
-        StringBuffer myNode= new StringBuffer("My Node");
+        StringBuffer myNode= new StringBuffer("My Node: ");
         INode tempNode = head;
         while(tempNode.getNext() != null){
             myNode.append(tempNode.getKey());
