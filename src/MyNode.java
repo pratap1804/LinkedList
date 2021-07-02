@@ -21,7 +21,6 @@ public class MyNode<K> implements INode<K> {
 	            this.key = key;
 	    }
 
-
 	    public INode getNext() {
 	        return next;
 	    }
