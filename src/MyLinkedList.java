@@ -106,6 +106,20 @@ public class MyLinkedList {
         return count;
     }
     
+    public void sortedLinkedList (INode newNode ) {
+        if (head == null || ((Comparable) head.getKey()).compareTo(newNode.getKey()) > 0) {
+            newNode.setNext(head);
+            head = newNode;
+        } else {
+            INode tempNode = head;
+            while (tempNode.getNext() != null && ((Comparable) tempNode.getNext().getKey()).compareTo(newNode.getKey()) < 0) {
+                tempNode = tempNode.getNext();
+            }
+            newNode.setNext(tempNode.getNext());
+            tempNode.setNext(newNode);
+        }
+    }
+    
     public void printMyNode(){
         StringBuffer myNode= new StringBuffer("My Node: ");
         INode tempNode = head;
