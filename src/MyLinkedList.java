@@ -40,12 +40,23 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
     
-    public INode delete() {
+    public INode deleteFirst() {
         INode tempNode = this.head;
         this.head = head.getNext();
         return tempNode;
     }
-
+    
+    public INode deleteLast() {
+		INode tempNode = head;
+        while (!tempNode.getNext().equals(tail)){
+            tempNode = tempNode.getNext();
+        }
+        this.tail = tempNode;
+        tempNode = tempNode.getNext();
+        return tempNode;
+		
+	}
+    
     public void printMyNode(){
         StringBuffer myNode= new StringBuffer("My Node: ");
         INode tempNode = head;
@@ -57,4 +68,6 @@ public class MyLinkedList {
         myNode.append(tempNode.getKey());
         System.out.println(myNode);
     }
+
+	
 }
